@@ -1,0 +1,18 @@
+<h1>Listing cforms</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+ 
+  <% @cform.each do |cform| %>
+    <tr>
+      <td><%= cform.title %></td>
+      <td><%= cform.text %></td>
+      <td><%= link_to 'Show', cform_path(cform) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New article', '/cform/new' %>

@@ -1,0 +1,2 @@
+class Cform < ApplicationRecord
+end
