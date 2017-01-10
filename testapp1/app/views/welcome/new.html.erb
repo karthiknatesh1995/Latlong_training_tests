@@ -1,0 +1,13 @@
+<%= form_for :welcome url:"/welcome" do |f| %>
+<p>
+	<%= f.label :title %>
+	<%= f.text_field :text %>
+	</p>
+	<p>
+	<%= f.label :comment %>
+	<%= f.text_area :textarea %>
+	</p>
+	<p>
+	<%= f.submit ("Click")%>
+	</p>
+	<%end%>

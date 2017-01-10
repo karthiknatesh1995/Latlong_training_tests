@@ -1,0 +1,17 @@
+<h1>Listing Articles</h1>
+<%= link_to 'New article', new_formc_path %>
+<table>
+<tr>
+<th>Title</th>
+<th>Comment</th>
+</tr>
+<% @demo1.each do |f| %>
+	<tr>
+	<td><%= f.title %></td>
+	<td><%= f.text %></td>
+	<td><%= link_to 'Detailed Info', formc_path(f) %></td>
+	<td><%= link_to 'Update Info', edit_formc_path(f) %></td>
+	<td><%= link_to 'Destroy', formc_path(f), method: :delete, data: {confirm: "Are you sure?"} %></td>
+	</tr>
+	<% end %>
+	</table>

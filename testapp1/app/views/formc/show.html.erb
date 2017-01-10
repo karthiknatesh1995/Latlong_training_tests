@@ -1,0 +1,36 @@
+	<p>Title:</p>
+	<%= @demo1.title %>
+	<p> Comment:</p>
+	<%= @demo1.text %>
+  <h2>Comments</h2>
+  <% @demo1.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+  <%= link_to 'Destroy Comment', formc_comment_path(comment.form, comment),
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+<% end %>
+	<h2>Add a comment:</h2>
+<%= form_for([@demo1, @demo1.comments.build], url: formc_comments_path(@demo1)) do |f| %>
+  <p>
+    <%= f.label :commenter %><br>
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+	<%= link_to 'show all articles', formc_index_path %>
+	<%= link_to 'Edit this article', edit_formc_path %>
