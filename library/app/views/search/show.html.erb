@@ -1,0 +1,18 @@
+<h1>Entered Details</h1>
+<table>
+<tr>
+<th>Accession Number</th>
+<th>Title</th>
+<th>Author</th>
+<th>Edition</th>
+<th>Publisher</th>
+</tr>
+<tr>
+<td><%= @article.acc_no %></td>
+<td><%= @article.title %></td>
+<td><%= @article.author %></td>
+<td><%= @article.edition %></td>
+<td><%= @article.publisher %></td>
+</tr>
+</table>
+<%= link_to "Back", new_article_path %>
