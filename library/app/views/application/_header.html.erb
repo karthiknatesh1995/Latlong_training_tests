@@ -1,0 +1,47 @@
+<style>
+.dropdown {
+    position: relative;
+    display: inline-block;
+    color:blue;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    max-width: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.main-div  {height: 40px; width:100%; background-color: aqua; }
+a {text-decoration: none;}
+</style>
+
+<div class="main-div">
+<%= link_to "Home   ", root_path %>&nbsp &nbsp
+<%= link_to "New Article     ", new_article_path %> &nbsp &nbsp
+<div class="dropdown">
+<span>Edit Article</span>&nbsp &nbsp &nbsp
+<div class="dropdown-content">
+<%@dd=Article.all%>
+<% @dd.each do |f| %>
+<%=link_to f.id, edit_article_path(f)%>
+<% end %>
+</div>
+</div>
+<div class="dropdown">
+<span>Show Article</span>&nbsp &nbsp &nbsp
+<div class="dropdown-content">
+<%@dd=Article.all%>
+<% @dd.each do |f| %>
+<%=link_to f.id, article_path(f)%>
+<% end %>
+</div>
+</div>
+</div>

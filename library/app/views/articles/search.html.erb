@@ -1,6 +1,11 @@
+<html>
+<head>
+<style>
+#t1, th, #d1 {border: 1px solid black}
+</style>
+</head>
 <h1>Entered Details</h1>
-<div><%= @title %></div>
-<table>
+<table id="t1">
 <tr>
 <th>Accession Number</th>
 <th>Title</th>
@@ -9,11 +14,18 @@
 <th>Publisher</th>
 </tr>
 <tr>
-<td><%= @article[0].acc_no %></td>
-<td><%= @article[0].title %></td>
-<td><%= @article[0].author %></td>
-<td><%= @article[0].edition %></td>
-<td><%= @article[0].publisher %></td>
+<td id="d1"><%= @article[0].acc_no %></td>
+<td id="d1"><%= @article[0].title %></td>
+<td id="d1"><%= @article[0].author %></td>
+<td id="d1"><%= @article[0].edition %></td>
+<td id="d1"><%= @article[0].publisher %></td>
+</tr>
+<tr>
+<td width=150px></td>
+<td width=150px></td><br/>
+<td width=150px><%= button_to "Back", new_article_path, :method => "get" %></td>
+<td></td>
+<td></td>
 </tr>
 </table>
-<%= link_to "Back", new_article_path %>
+</html>

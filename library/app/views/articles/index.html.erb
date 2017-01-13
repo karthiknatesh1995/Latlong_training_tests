@@ -1,20 +1,54 @@
+<html>
+<head>
+<style>
+#t1, th, #d1 {border: 1px solid black}
+</style>
+</head>
+<%= render 'header' %>
 <h1>Books Details</h1>
-<table>
+<table id="t1">
 <tr>
+<th>Book ID</th>
 <th>Accession Number</th>
 <th>Title</th>
 <th>Author</th>
 <th>Edition</th>
 <th>Publisher</th>
+<th>Show</th>
+<th>Edit</th>
+<th>Delete</th>
 </tr>
 <% @articles.each do |articles| %>
 <tr>
-<td><%= articles.acc_no %></td>
-<td><%= articles.title %></td>
-<td><%= articles.author %></td>
-<td><%= articles.edition %></td>
-<td><%= articles.publisher %></td>
+<td id="d1"><%= link_to articles.id, article_path(articles) %></td>
+<td id="d1"><%= articles.acc_no %></td>
+<td id="d1"><%= articles.title %></td>
+<td id="d1"><%= articles.author %></td>
+<td id="d1"><%= articles.edition %></td>
+<td id="d1"><%= articles.publisher %></td>
+<td id="d1" align=center><%= link_to "SHOW", article_path(articles) %></td>
+<td id="d1" align=center><%= link_to "EDIT", edit_article_path(articles) %></td>
+<td id="d1" align=center><%= link_to "DELETE", article_path(articles), method: :delete, data: {confirm: "Are you sure?"}%> </td>
 </tr>
 <% end %>
 </table>
-<%= link_to "New article", new_article_path %>
+<table>
+<tr>
+<td width=150px></td>
+<td width=150px></td><br/>
+<td width=150px><%= button_to "New article", new_article_path, :method => "get" %></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+<% unless @articles.empty? %>
+	<h1> Search for Book</h1>
+	<%=form_for :article, url: 'articles#search' do |f| %>
+	<p>
+	<%= f.label "Title:"%>
+	<%= f.text_field :title%>
+	</p>
+	<%= f.submit("Search")%>
+	<% end %> 
+<%end%>
+</html>

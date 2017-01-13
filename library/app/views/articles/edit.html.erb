@@ -1,0 +1,32 @@
+<%= render 'header' %>
+<h1>Editing Book Details</h1>
+
+<%= form_for @article do |f| %> 
+<table> 
+<tr>
+<td ><%= f.label "Accesssion Number"%></td>
+<td><%= f.text_field :acc_no%></td>
+</tr>
+<tr>
+<td><%= f.label "Title"%></td>
+<td><%= f.text_field :title%></td>
+</tr>
+<tr>
+<td><%= f.label "Authors"%></td>
+<td><%= f.text_field :author%></td>
+</tr>
+<tr>
+<td><%= f.label "Edition"%></td>
+<td><%= f.text_field :edition%></td>
+</tr>
+<tr>
+<td><%= f.label "Publisher"%></td>
+<td><%= f.text_field :publisher%></td>
+</tr>
+<tr>
+<td></td>
+<td align="center"><%= f.submit("Submit Details")%></td>
+</tr>
+ </table>
+<% end %>
+
